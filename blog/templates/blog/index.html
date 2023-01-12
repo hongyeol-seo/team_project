@@ -6,22 +6,44 @@
 -8"
     />
     <title>Blog</title>
+    
+    <style>
+        #str {
+          color: pink;
+          position : absolute;
+          top : 500px;
+          left : 50px;
+       
+          z-index: 1;
+        }
+
+        #subpic{
+          position : relative;
+        }
+
+        div {
+          float : left
+        }
+        </style>
+
   </head>
   <body>
-    <h1>Blog</h1>
+    <h1>Home_page</h1>
     {% for p in posts %}
-    <h2><a href="{{	p.get_absolute_url }}"> {{ p.name }} </a></h2>
-    <h2>{{ p.mbti }} </a></h2>
+    <div>
+      {% comment %} <h2><a href="{{	p.get_absolute_url }}"> {{ p.name }} </a></h2>    </div> {% endcomment %}      
+      {% comment %} <h2>{{ p.introImage.url }} </a></h2> {% endcomment %}
+      <div id='subpic'>
+      {% if p.introImage %}
+      <h2><span id="str">{{ p.name }}</span></h2>
+      <a href="{{	p.get_absolute_url }}"> <img src="{{ p.introImage.url }}" width="230" height="700">
+      {% endif %}
+      </a></div>
+      {% comment %}
+      <h4>{{ p.created_at }}</h4>
+      <p>{{ p.content }}</p>
+      {% endcomment %} {% endfor %}
+
     
-    {% comment %} <h2>{{ p.introImage.url }} </a></h2> {% endcomment %}
-
-    {% if p.introImage %}
-    <a href="{{	p.get_absolute_url }}"> <img src="{{ p.introImage.url }}" width="175" height="250">
-    {% endif %}
-
-    {% comment %}
-    <h4>{{ p.created_at }}</h4>
-    <p>{{ p.content }}</p>
-    {% endcomment %} {% endfor %}
   </body>
 </html>
