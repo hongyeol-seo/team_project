@@ -6,12 +6,17 @@
 </head>
 <body>
 <nav> <!-- 네비게이션 링크 -->
-<a href="/blog/">Blog</a>
+<a href="/blog/">Blog2</a>
 </nav>
-<h1> {{	post.title }} </h2>
-<h4> {{	post.created_at }} </h4>
+<h1> {{	post.name }} </h2>
+{% comment %} <h1> {{	post.title }} </h2> {% endcomment %}
+<h4> {{	post.mbit }} </h4>
+<h4> {{	post.email_address }} </h4>
 <p> {{	post.content }} </p>
+
+<a href="#!"><img class="card-img-top" src="{{post.introImage.url}}" alt="..." /></a>
+
 <hr>
-<h3>여기에 댓글이 들어올 수 있겠죠?	</h3>
+
 </body>
 </html>

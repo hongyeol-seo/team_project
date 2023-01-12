@@ -15,14 +15,17 @@ class Post(models.Model):
 
     # 이름 , 이메일 , mbti, 사진, 자기소개
     name = models.CharField(max_length=10, blank=False, null=True, default="")
-    email_address = models.EmailField(max_length=20, null=True)
+    email_address = models.EmailField(max_length=50, null=True)
     mbti = models.CharField(max_length=10, null=True, default="")
     # intro = models.TextField()
     content = models.TextField()
     introImage = models.ImageField(upload_to="blog/images/", blank=True)
 
-    def __str__(self):
-        return f"[{self.pk}] {self.title}, {self.created_at}"
+    # def __str__(self):
+    #     return f"[{self.pk}] {self.title}, {self.created_at}"
 
     def get_absolute_url(self):
         return f'/blog/{self.pk}/'
+
+    def __str__(self):
+        return f"[{self.pk}] {self.name}"
