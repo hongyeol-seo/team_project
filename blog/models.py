@@ -20,6 +20,7 @@ class Post(models.Model):
     # intro = models.TextField()
     content = models.TextField()
     introImage = models.ImageField(upload_to="blog/images/", blank=True)
+    # profileImage = models.ImageField(upload_to="blog/images/", blank=True)
 
     # def __str__(self):
     #     return f"[{self.pk}] {self.title}, {self.created_at}"
